@@ -23,7 +23,7 @@ import seaborn as sns
 
 # --- 1. Memuat dan Mempersiapkan Data ---
 # Gunakan file CSV baru Anda dengan label 0-25
-file_path = 'DataTA_new2.csv'
+file_path = 'Data.csv'
 # Specify the semicolon delimiter
 df = pd.read_csv(file_path, delimiter=';')
 

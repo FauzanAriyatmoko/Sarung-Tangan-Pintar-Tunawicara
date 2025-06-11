@@ -11,7 +11,7 @@
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/micro/all_ops_resolver.h"
 #include "tensorflow/lite/schema/schema_generated.h"
-#include "TA_Model.h"
+#include "MODEL.h"
 
 // --- Deklarasi Fungsi (Prototipe) ---
 char mapClassIDToSIBI(int class_id);
