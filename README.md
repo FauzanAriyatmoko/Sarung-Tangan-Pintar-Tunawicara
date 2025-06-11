@@ -1,0 +1,1 @@
+# Sarung-Tangan-Pintar-Tunawicara
