@@ -1,0 +1,64 @@
+Macam-macam konfigurasi forecasting data untuk menganalisis data drifting
+
+[Konfigurasi Forecasting-1]
+// Offset dari kalibrasi
+float ax_offset = -0.07; // g
+float ay_offset = 0.01;  // g
+float az_offset = -0.03; // g
+float gx_offset = 0.02;  // rad/s
+float gy_offset = 0.02;  // rad/s
+float gz_offset = 0.00;  // rad/s
+
+[Konfigurasi Forecasting-2]
+// Offset dari kalibrasi
+float ax_offset = -0.14; // g
+float ay_offset = 0.03;  // g
+float az_offset = -0.07; // g
+float gx_offset = 0.00;  // rad/s
+float gy_offset = 0.00;  // rad/s
+float gz_offset = 0.00;  // rad/s
+
+[Konfigurasi Forecasting-3]
+// Offset dari kalibrasi
+float ax_offset = 0.14; // g
+float ay_offset = -0.02;  // g
+float az_offset = 0.02; // g
+float gx_offset = 0.00;  // rad/s
+float gy_offset = 0.00;  // rad/s
+float gz_offset = 0.00;  // rad/s
+
+[Konfigurasi Forecasting-4]
+// Offset dari kalibrasi
+float ax_offset = 0.07; // g
+float ay_offset = -0.03;  // g
+float az_offset = 0.04; // g
+float gx_offset = 0.00;  // rad/s
+float gy_offset = 0.00;  // rad/s
+float gz_offset = 0.00;  // rad/s
+
+[Konfigurasi Forecasting-5]
+// Offset dari kalibrasi
+float ax_offset = 0.03; // g
+float ay_offset = -0.04;  // g
+float az_offset = 0.04; // g
+float gx_offset = -0.01;  // rad/s
+float gy_offset = -0.01;  // rad/s
+float gz_offset = 0.00;  // rad/s
+
+[Konfigurasi Forecasting-6]
+// Offset dari kalibrasi
+float ax_offset = 0.02; // g
+float ay_offset = -0.02;  // g
+float az_offset = 0.04; // g
+float gx_offset = -0.01;  // rad/s
+float gy_offset = -0.01;  // rad/s
+float gz_offset = 0.00;  // rad/s
+
+[Konfigurasi Forecasting-7]
+// Offset dari kalibrasi
+float ax_offset = 0.00; // g
+float ay_offset = -0.02;  // g
+float az_offset = 0.04; // g
+float gx_offset = -0.01;  // rad/s
+float gy_offset = -0.01;  // rad/s
+float gz_offset = 0.00;  // rad/s

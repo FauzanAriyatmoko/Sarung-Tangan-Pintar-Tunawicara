@@ -1,0 +1,223 @@
+Kalibrasi
+
+// Sketsa Arduino untuk mengembalikan offset kalibrasi MPU6050 menggunakan pustaka Adafruit
+// Versi 1.2 (diperbaiki untuk mencegah looping tak terbatas, Oktober 2023)
+// Dibuat oleh Luis Ródenas <luisrodenaslorda@gmail.com>, diadaptasi untuk Adafruit_MPU6050
+// Pustaka Adafruit_MPU6050 tersedia di https://github.com/adafruit/Adafruit_MPU6050
+
+// Offset ini digunakan untuk mengoreksi pembacaan sensor MPU6050 agar akurat.
+// Pengaruh suhu belum diperhitungkan, jadi sebaiknya kalibrasi dan gunakan pada suhu yang sama.
+// Kalibrasi ini menghitung offset secara manual karena pustaka Adafruit tidak mendukung pengaturan offset langsung di register.
+
+// ==========  LISENSI  =====================================
+// Kode ini diadaptasi dari kode di bawah lisensi MIT
+// Hak cipta (c) 2011 Jeff Rowberg (kode asli)
+// Kode ini bebas digunakan, dimodifikasi, dan didistribusikan sesuai lisensi MIT.
+
+// Pustaka yang diperlukan
+#include <Arduino.h>
+#include <Adafruit_MPU6050.h>
+#include <Adafruit_Sensor.h>
+#include <Wire.h>
+
+///////////////////////////////////   KONFIGURASI   /////////////////////////////
+// Deklarasi prototipe fungsi
+void meansensors();
+void calibration();
+
+// Variabel konfigurasi
+int buffersize = 2000;     // Jumlah pembacaan untuk rata-rata, ditingkatkan untuk mengurangi noise (default:2000)
+float acel_deadzone = 0.05; // Kesalahan akselerometer dalam g (default:0.05 g)
+float giro_deadzone = 0.01; // Kesalahan giro dalam rad/s (default:0.01 rad/s)
+const int max_iterations = 100; // Batas maksimum iterasi untuk mencegah looping tak terbatas
+
+// Inisialisasi objek MPU6050
+Adafruit_MPU6050 mpu;
+
+float ax, ay, az, gx, gy, gz; // Variabel untuk menyimpan pembacaan sensor
+float mean_ax, mean_ay, mean_az, mean_gx, mean_gy, mean_gz; // Rata-rata pembacaan
+float ax_offset, ay_offset, az_offset, gx_offset, gy_offset, gz_offset; // Offset yang dihitung
+int state = 0; // Status proses kalibrasi
+
+///////////////////////////////////   SETUP   ////////////////////////////////////
+void setup() {
+  // Gabungkan bus I2C
+  Wire.begin();
+
+  // Inisialisasi komunikasi serial
+  Serial.begin(115200);
+  while (!Serial) {
+    delay(10); // Tunggu hingga Serial siap
+  }
+
+  // Inisialisasi sensor MPU6050
+  if (!mpu.begin()) {
+    Serial.println("Gagal menemukan MPU6050!");
+    while (1);
+  }
+  Serial.println("MPU6050 ditemukan!");
+
+  // Konfigurasi sensor
+  mpu.setAccelerometerRange(MPU6050_RANGE_2_G); // Rentang ±2g
+  mpu.setGyroRange(MPU6050_RANGE_250_DEG);      // Rentang ±250°/s
+  mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);   // Filter bandwidth untuk stabilitas
+
+  // Tunggu pengguna untuk memulai
+  while (Serial.available() && Serial.read()); // Kosongkan buffer
+  while (!Serial.available()) {
+    Serial.println(F("Kirim karakter apa saja untuk memulai sketsa.\n"));
+    delay(1500);
+  }
+  while (Serial.available() && Serial.read()); // Kosongkan buffer lagi
+
+  // Pesan awal
+  Serial.println("\nSketsa Kalibrasi MPU6050");
+  delay(2000);
+  Serial.println("\nLetakkan MPU6050 dalam posisi horizontal, dengan huruf pada kemasan menghadap ke atas. \nJangan sentuh sampai Anda melihat pesan selesai.\n");
+  delay(3000);
+}
+
+///////////////////////////////////   LOOP   ////////////////////////////////////
+void loop() {
+  if (state == 0) {
+    Serial.println("\nMembaca sensor untuk pertama kali...");
+    meansensors();
+    state++;
+    delay(1000);
+  }
+
+  if (state == 1) {
+    Serial.println("\nMenghitung offset...");
+    calibration();
+    state++;
+    delay(1000);
+  }
+
+  if (state == 2) {
+    meansensors();
+    Serial.println("\nSELESAI!");
+    Serial.print("\nPembacaan sensor dengan offset:\t");
+    Serial.print(mean_ax + ax_offset);
+    Serial.print("\t");
+    Serial.print(mean_ay + ay_offset);
+    Serial.print("\t");
+    Serial.print(mean_az + az_offset);
+    Serial.print("\t");
+    Serial.print(mean_gx + gx_offset);
+    Serial.print("\t");
+    Serial.print(mean_gy + gy_offset);
+    Serial.print("\t");
+    Serial.println(mean_gz + gz_offset);
+    Serial.print("Offset Anda:\t");
+    Serial.print(ax_offset);
+    Serial.print("\t");
+    Serial.print(ay_offset);
+    Serial.print("\t");
+    Serial.print(az_offset);
+    Serial.print("\t");
+    Serial.print(gx_offset);
+    Serial.print("\t");
+    Serial.print(gy_offset);
+    Serial.print("\t");
+    Serial.println(gz_offset);
+    Serial.println("\nData dicetak sebagai: acelX acelY acelZ giroX giroY giroZ");
+    Serial.println("Periksa apakah pembacaan sensor Anda mendekati 0 0 1 0 0 0 (dalam g dan rad/s)");
+    Serial.println("Catat offset Anda untuk digunakan di proyek Anda. Contoh: kurangi offset dari pembacaan sensor.");
+    while (1);
+  }
+}
+
+///////////////////////////////////   FUNGSI   ////////////////////////////////////
+void meansensors() {
+  long i = 0;
+  float buff_ax = 0, buff_ay = 0, buff_az = 0, buff_gx = 0, buff_gy = 0, buff_gz = 0;
+
+  while (i < (buffersize + 101)) {
+    // Baca data sensor
+    sensors_event_t a, g, temp;
+    mpu.getEvent(&a, &g, &temp);
+
+    ax = a.acceleration.x / 9.81; // Konversi ke g (1g ≈ 9.81 m/s²)
+    ay = a.acceleration.y / 9.81;
+    az = a.acceleration.z / 9.81;
+    gx = g.gyro.x; // Dalam rad/s
+    gy = g.gyro.y;
+    gz = g.gyro.z;
+
+    if (i > 100 && i <= (buffersize + 100)) { // 100 pengukuran pertama dibuang
+      buff_ax += ax;
+      buff_ay += ay;
+      buff_az += az;
+      buff_gx += gx;
+      buff_gy += gy;
+      buff_gz += gz;
+    }
+    if (i == (buffersize + 100)) {
+      mean_ax = buff_ax / buffersize;
+      mean_ay = buff_ay / buffersize;
+      mean_az = buff_az / buffersize;
+      mean_gx = buff_gx / buffersize;
+      mean_gy = buff_gy / buffersize;
+      mean_gz = buff_gz / buffersize;
+    }
+    i++;
+    delay(2); // Cegah pengukuran berulang
+  }
+}
+
+void calibration() {
+  // Hitung offset awal
+  ax_offset = -mean_ax; // Target ax = 0
+  ay_offset = -mean_ay; // Target ay = 0
+  az_offset = 1 - mean_az; // Target az = 1g
+  gx_offset = -mean_gx; // Target gx = 0
+  gy_offset = -mean_gy; // Target gy = 0
+  gz_offset = -mean_gz; // Target gz = 0
+
+  int iteration = 0;
+  while (iteration < max_iterations) {
+    int ready = 0;
+
+    // Baca sensor dengan offset yang diterapkan
+    meansensors();
+
+    // Cetak status untuk debugging
+    Serial.print("Iterasi: "); Serial.print(iteration);
+    Serial.print("\tPembacaan: ");
+    Serial.print(mean_ax + ax_offset); Serial.print("\t");
+    Serial.print(mean_ay + ay_offset); Serial.print("\t");
+    Serial.print(mean_az + az_offset); Serial.print("\t");
+    Serial.print(mean_gx + gx_offset); Serial.print("\t");
+    Serial.print(mean_gy + gy_offset); Serial.print("\t");
+    Serial.println(mean_gz + gz_offset);
+
+    // Periksa apakah pembacaan sudah dalam deadzone
+    if (abs(mean_ax + ax_offset) <= acel_deadzone) ready++;
+    else ax_offset = ax_offset - (mean_ax / 10.0);
+
+    if (abs(mean_ay + ay_offset) <= acel_deadzone) ready++;
+    else ay_offset = ay_offset - (mean_ay / 10.0);
+
+    if (abs((mean_az + az_offset) - 1) <= acel_deadzone) ready++;
+    else az_offset = az_offset + (1 - mean_az) / 10.0;
+
+    if (abs(mean_gx + gx_offset) <= giro_deadzone) ready++;
+    else gx_offset = gx_offset - (mean_gx / 5.0);
+
+    if (abs(mean_gy + gy_offset) <= giro_deadzone) ready++;
+    else gy_offset = gy_offset - (mean_gy / 5.0);
+
+    if (abs(mean_gz + gz_offset) <= giro_deadzone) ready++;
+    else gz_offset = gz_offset - (mean_gz / 5.0);
+
+    if (ready == 6) {
+      Serial.println("Kalibrasi berhasil!");
+      break;
+    }
+
+    iteration++;
+    if (iteration == max_iterations) {
+      Serial.println("Peringatan: Kalibrasi tidak konvergen setelah maksimum iterasi!");
+    }
+  }
+}
