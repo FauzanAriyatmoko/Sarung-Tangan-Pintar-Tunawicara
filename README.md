@@ -2,9 +2,9 @@
 
 Dari Teknologi Untuk Masyarakat Disabilitas Tunawicara Dalam Kebebasan Bersosialisasi Tanpa Batas🧏‍♂️🙋‍♂️
 
-[![Stars](https://img.shields.io/github/stars/your-username/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara/stargazers)
-[![Forks](https://img.shields.io/github/forks/your-username/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara/network/members)
-[![Issues](https://img.shields.io/github/issues/your-username/Sarung-Tangan-Pintar-Tunawicara)](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara/issues)
+[![Stars](https://img.shields.io/github/stars/your-username/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara/stargazers)
+[![Forks](https://img.shields.io/github/forks/your-username/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara/network/members)
+[![Issues](https://img.shields.io/github/issues/your-username/Sarung-Tangan-Pintar-Tunawicara)](https://github.com/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <!-- Badge Kustom agar sesuai dengan gambar -->
