@@ -12,7 +12,7 @@
 
 <!-- Badge Kustom agar sesuai dengan gambar -->
 ![Last Commit](https://img.shields.io/badge/komit--terakhir-rabu--lalu-lightgrey)
-![Jupyter Notebook](https://img.shields.io/badge/jupyter--notebook-54.8%25-blue)
+![Python Notebook](https://img.shields.io/badge/python--notebook-54.8%25-blue)
 ![C](https://img.shields.io/badge/C-44.1%25-orange)
 
 ### Dibuat menggunakan tech stack:
