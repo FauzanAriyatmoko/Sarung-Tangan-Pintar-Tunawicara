@@ -1,6 +1,6 @@
 # SARUNG-TANGAN-PINTAR-TUNAWICARA
 
-Menjembatani Keheningan dengan Sarung Tangan Pintar: Terjemahan Bahasa Isyarat Real-time
+Dari Teknologi Untuk Masyarakat Disabilitas Tunawicara Dalam Kebebasan Bersosialisasi Tanpa Batas🧏‍♂️🙋‍♂️
 
 [![Stars](https://img.shields.io/github/stars/your-username/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara/stargazers)
 [![Forks](https://img.shields.io/github/forks/your-username/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara/network/members)
