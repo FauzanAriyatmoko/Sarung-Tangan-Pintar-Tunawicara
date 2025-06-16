@@ -13,7 +13,7 @@
 <!-- Badge Kustom agar sesuai dengan gambar -->
 ![Last Commit](https://img.shields.io/badge/komit--terakhir-rabu--lalu-lightgrey)
 ![Jupyter Notebook](https://img.shields.io/badge/jupyter--notebook-54.8%25-blue)
-![Languages](https://img.shields.io/badge/bahasa-4-blue)
+![C](https://img.shields.io/badge/C-44.1%25-orange)
 
 ### Dibuat menggunakan tech stack:
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
