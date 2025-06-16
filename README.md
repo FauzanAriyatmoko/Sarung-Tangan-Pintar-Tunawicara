@@ -1,4 +1,4 @@
-# SARUNG-TANGAN-PINTAR-TUNAWICARA
+# SARUNG TANGAN PINTAR TUNAWICARA APLIKATIF KLASIFIKASI DATA ANN
 
 Dari Teknologi Untuk Masyarakat Disabilitas Tunawicara Dalam Kebebasan Bersosialisasi Tanpa Batas🧏‍♂️🙋‍♂️
 
