@@ -104,7 +104,7 @@ Navigasi ke direktori `Software/Python` dan instal pustaka Python yang diperluka
 
 ```bash
 cd Software/Python
-pip install -r requirements.txt # Atau daftar pustaka Python yang disebutkan di Prasyarat
+pip install -r requirements.txt
 ```
 
 #### 3. Penyiapan Perangkat Keras
@@ -117,14 +117,6 @@ pip install -r requirements.txt # Atau daftar pustaka Python yang disebutkan di 
 -   Buka file proyek firmware yang relevan (misalnya, `Listing 5.3` di Lampiran B PDF).
 -   Pilih papan dan port serial yang benar di pengaturan IDE Anda.
 -   Unggah firmware ke mikrokontroler ESP32 DevkitC V4 Anda.
-
-```arduino
-// Contoh untuk Arduino IDE:
-// 1. Buka file .ino (misalnya, dari Listing 5.3 dalam Lampiran B)
-// 2. Buka Tools -> Board dan pilih mikrokontroler Anda (contoh: "ESP32 Dev Module")
-// 3. Buka Tools -> Port dan pilih port serial yang terhubung ke sarung tangan Anda.
-// 4. Klik tombol "Upload" (ikon panah kanan) untuk mengompilasi dan mengunggah firmware.
-```
 
 ## Penggunaan
 
@@ -210,7 +202,7 @@ Pastikan kode Anda mematuhi standar pengkodean kami, menyertakan dokumentasi yan
 Punya pertanyaan, saran, atau hanya ingin terhubung? Kami senang mendengar dari Anda!
 
 -   **Penulis/Pemelihara Proyek:** Muhammad Fauzan Ariyatmoko
--   **Email:** [fauzan.ariyatmoko@gmail.com] (Ganti dengan email kontak Anda)
+-   **Email:** [fauzan.ariyatmoko@gmail.com]
 -   **GitHub Issues:** Laporkan bug atau ajukan fitur baru melalui [halaman Issues kami](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara/issues).
 
 ## Informasi Lebih Lanjut
