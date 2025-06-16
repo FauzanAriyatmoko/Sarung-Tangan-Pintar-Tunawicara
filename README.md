@@ -210,7 +210,7 @@ Pastikan kode Anda mematuhi standar pengkodean kami, menyertakan dokumentasi yan
 Punya pertanyaan, saran, atau hanya ingin terhubung? Kami senang mendengar dari Anda!
 
 -   **Penulis/Pemelihara Proyek:** Muhammad Fauzan Ariyatmoko
--   **Email:** [email-anda@example.com] (Ganti dengan email kontak Anda)
+-   **Email:** [fauzan.ariyatmoko@gmail.com] (Ganti dengan email kontak Anda)
 -   **GitHub Issues:** Laporkan bug atau ajukan fitur baru melalui [halaman Issues kami](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara/issues).
 
 ## Informasi Lebih Lanjut
