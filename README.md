@@ -1,9 +1,9 @@
 ## STUDI DAN PENGEMBANGAN SARUNG TANGAN PINTAR TUNAWICARA: MEMANFAATKAN SENSOR GYRO DAN FLEX DENGAN KLASIFIKASI DATA BERBASIS JARINGAN SARAF BUATAN
 
-**Penulis:** Muhammad Fauzan Ariyatmoko (NRP 5001211062)
-**Dosen Pembimbing:** Diky Anggoro, S.Si., M.Si
-**Institusi:** Departemen Fisika, Fakultas Sains dan Analitika Data, Institut Teknologi Sepuluh Nopember (ITS), Surabaya
-**Tahun:** 2025
+- **Penulis:** Muhammad Fauzan Ariyatmoko (NRP 5001211062)
+- **Dosen Pembimbing:** Diky Anggoro, S.Si., M.Si
+- **Institusi:** Departemen Fisika, Fakultas Sains dan Analitika Data, Institut Teknologi Sepuluh Nopember (ITS), Surabaya
+- **Tahun:** 2025
 
 [![Stars](https://img.shields.io/github/stars/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara/stargazers)
 [![Forks](https://img.shields.io/github/forks/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara?style=social)](https://github.com/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara/network/members)
