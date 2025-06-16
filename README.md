@@ -12,9 +12,9 @@ Dari Teknologi Untuk Masyarakat Disabilitas Tunawicara Dalam Kebebasan Bersosial
 ![Jupyter Notebook](https://img.shields.io/badge/jupyter--notebook-54.8%25-blue)
 ![Languages](https://img.shields.io/badge/bahasa-4-blue)
 
-### Dibangun dengan alat dan teknologi:
-![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown)
-![README](https://img.shields.io/badge/README-blue?style=for-the-badge)
+### Dibuat menggunakan tech stack:
+![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
+![PlatformIO](https://img.shields.io/badge/PlatformIO-%23222.svg?style=for-the-badge&logo=platformio&logoColor=%23f5822a)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
