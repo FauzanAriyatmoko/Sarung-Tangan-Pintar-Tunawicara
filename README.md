@@ -38,7 +38,7 @@
 - [Peningkatan di Masa Depan](#peningkatan-di-masa-depan)
 
 ## Gambaran Umum
-**Sarung Tangan Pintar Tunawicara** adalah sebuah studi dan pengembangan alat bantu komunikasi mutakhir bagi penyandang disabilitas tunawicara. Proyek ini berfokus pada pemanfaatan **sensor giroskop IMU MPU6050** dan **lima sensor *flex*** untuk mendeteksi gerakan tangan yang kompleks, merepresentasikan 26 huruf dalam **Abjad Sistem Isyarat Bahasa Indonesia (SIBI)**. Data sensor yang diperoleh kemudian diklasifikasikan menggunakan **Jaringan Saraf Tiruan (Artificial Neural Networks - ANN)**. Tujuan utamanya adalah untuk secara efektif memfasilitasi komunikasi dua arah antara penyandang tunawicara dan masyarakat umum yang tidak memahami bahasa isyarat, serta memberikan kontribusi nyata pada kemajuan riset dan pengembangan teknologi asistif di Indonesia.
+**Sarung Tangan Pintar Tunawicara** adalah sebuah alat bantu komunikasi bagi penyandang disabilitas tunawicara. Proyek ini berfokus pada pemanfaatan **sensor giroskop IMU MPU6050** dan **lima sensor *flex*** untuk mendeteksi gerakan tangan yang kompleks, merepresentasikan 26 huruf dalam **Abjad Sistem Isyarat Bahasa Indonesia (SIBI)**. Data sensor yang diperoleh kemudian diklasifikasikan menggunakan **Jaringan Saraf Tiruan (Artificial Neural Networks - ANN)**. Tujuan utamanya adalah untuk secara efektif memfasilitasi komunikasi antara penyandang tunawicara dan masyarakat umum yang tidak memahami bahasa isyarat, serta memberikan kontribusi nyata pada kemajuan riset dan pengembangan teknologi asistif di Indonesia.
 
 ## Mengapa Sarung Tangan Pintar Tunawicara?
 Proyek ini mengatasi tantangan komunikasi dan penelitian yang ada, dengan fokus pada prinsip kerja instrumen dan pengembangan perangkat asistif:
@@ -95,15 +95,15 @@ Ikuti langkah-langkah ini untuk menyiapkan proyek di mesin lokal Anda:
 Mulai dengan mengkloning repositori GitHub ke sistem lokal Anda:
 
 ```bash
-git clone [https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara.git](https://github.com/your-username/Sarung-Tangan-Pintar-Tunawicara.git)
+git clone [https://github.com/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara.git](https://github.com/FauzanAriyatmoko/Sarung-Tangan-Pintar-Tunawicara.git)
 cd Sarung-Tangan-Pintar-Tunawicara
 ```
 
 #### 2. Instal dependensi (Python)
-Navigasi ke direktori `Software/Python` dan instal pustaka Python yang diperlukan (pastikan `requirements.txt` ada atau instal secara manual):
+Navigasi ke direktori `Kebutuhan Library` dan instal pustaka Python yang diperlukan (pastikan `requirements.txt` ada atau instal secara manual):
 
 ```bash
-cd Software/Python
+cd Kebutuhan Library
 pip install -r requirements.txt
 ```
 
@@ -123,23 +123,11 @@ pip install -r requirements.txt
 ### Tujuan Proyek
 Tujuan utama Sarung Tangan Pintar Tunawicara adalah untuk memberdayakan individu dengan gangguan bicara dengan menyediakan alat terjemahan bahasa isyarat real-time yang mudah diakses dan efisien, khususnya untuk **Abjad SIBI**. Ini bertujuan untuk mendorong lingkungan komunikasi yang inklusif dalam kehidupan sehari-hari, pendidikan, dan pengaturan profesional.
 
-### Cara Menjalankan
-Setelah perangkat keras disiapkan dan firmware diunggah, Anda dapat berinteraksi dengan sarung tangan pintar:
-
-1.  **Mulai Monitor Serial:** Buka Monitor Serial di IDE Mikrokontroler Anda untuk melihat data sensor mentah atau pesan debug awal.
-2.  **Jalankan Aplikasi Sisi PC (Opsional):** Jika Anda memiliki aplikasi desktop Python untuk visualisasi data, pelatihan model, atau interaksi lanjutan (misalnya, seperti `Listing 5.5` di Lampiran B PDF), jalankan dari direktori `Software/Python`.
-    ```bash
-    python main_app.py # Atau skrip aplikasi spesifik Anda
-    ```
-    Aplikasi ini akan terhubung ke sarung tangan melalui port serial dan dapat menampilkan teks yang diterjemahkan atau mengaktifkan output suara melalui DFPlayer Mini.
-
 ### Kasus Penggunaan
 Sarung Tangan Pintar Tunawicara dapat digunakan secara efektif dalam berbagai skenario:
 
 -   **Komunikasi Sehari-hari:** Memfasilitasi percakapan alami antara individu yang mendengar dan tuli tanpa memerlukan penerjemah.
 -   **Lingkungan Pendidikan:** Mendukung lingkungan belajar yang inklusif dengan menyediakan terjemahan real-time untuk siswa dengan gangguan bicara.
--   **Layanan Publik:** Meningkatkan aksesibilitas di rumah sakit, kantor pemerintah, dan ritel dengan memungkinkan komunikasi langsung.
--   **Situasi Darurat:** Menawarkan alat komunikasi vital ketika pemahaman yang cepat dan jelas sangat penting.
 -   **Penelitian & Pengembangan:** Berfungsi sebagai platform untuk penelitian lebih lanjut dalam interaksi manusia-komputer, teknologi bantu, dan pembelajaran mesin untuk pengenalan gerakan.
 
 ## Pengujian & Evaluasi Model
@@ -153,48 +141,23 @@ Pengujian komprehensif telah dilakukan di seluruh siklus pengembangan untuk mema
     -   Ini menunjukkan keberhasilan dalam meminimalkan *zero-bias error* yang signifikan sebelum kalibrasi (misal, Accel Z sekitar -0.8g, giroskop antara -0.005 hingga -0.015 rad/s).
 
 -   **Sensitivitas Sensor Flex:**
-    -   **Resistansi terhadap Sudut:** Hubungan linear yang kuat antara resistansi dan sudut tekuk untuk kelima sensor *flex* (rata-rata $R^2 > 0.95$, contoh: sensor 1 $R^2=0.9890$ (serial) dan $R^2=0.9902$ (multimeter); sensor 4 $R^2=0.9669$ (serial) dan $R^2=0.9550$ (multimeter)).
-    -   **Tegangan terhadap Sudut:** Hubungan linear terbalik yang konsisten antara tegangan keluaran dan sudut tekuk (rata-rata $R^2 > 0.98$, contoh: sensor 1 $R^2=0.9959$ (serial) dan $R^2=0.9909$ (multimeter); sensor 3 $R^2=0.9942$ (serial) dan $R^2=0.9962$ (multimeter)).
+    -   **Resistansi terhadap Sudut:** Hubungan linear yang kuat antara resistansi dan sudut tekuk untuk kelima sensor *flex* (rata-rata $R^2 > 0.95$).
+      contoh: sensor 1 $R^2=0.9890$ (serial) dan $R^2=0.9902$ (multimeter).
+      sensor 4 $R^2=0.9669$ (serial) dan $R^2=0.9550$ (multimeter)).
+    -   **Tegangan terhadap Sudut:** Hubungan linear terbalik yang konsisten antara tegangan keluaran dan sudut tekuk (rata-rata $R^2 > 0.98$).
+      contoh: sensor 1 $R^2=0.9959$ (serial) dan $R^2=0.9909$ (multimeter).
+      sensor 3 $R^2=0.9942$ (serial) dan $R^2=0.9962$ (multimeter)).
 
 -   **Evaluasi Klasifikasi Jaringan Saraf Tiruan (ANN):**
+![train_ann_4](https://github.com/user-attachments/assets/feefb3e5-930d-4c9c-aa95-c101b9103ed0)
+![train_ann_2](https://github.com/user-attachments/assets/15d623e7-7cc6-4f56-93c6-f6bc71ce6e4b)
+![grafik loss](https://github.com/user-attachments/assets/1ad2caac-4bfd-4756-ade3-08102051f1ed)
+![grafik akurasi](https://github.com/user-attachments/assets/3938559a-9a45-48af-9aae-c590b801fe13)
     -   **Akurasi Model:** Kurva akurasi pelatihan dan validasi konvergen mendekati 1.0 (100%), menunjukkan kemampuan generalisasi yang sangat baik dan tidak ada *overfitting* yang signifikan.
     -   **Loss Model:** Kurva *loss* pelatihan dan validasi konvergen mendekati nol, mengindikasikan bahwa perbedaan antara prediksi model dan nilai sebenarnya sangat minimal.
     -   **Confusion Matrix:** Matriks 26x26 menunjukkan sebagian besar nilai terkonsentrasi kuat di sepanjang diagonal utama, menandakan klasifikasi yang benar untuk mayoritas abjad SIBI.
     -   **Metrik Performa (Precision, Recall, F1-Score):** Mayoritas kelas huruf menunjukkan nilai *precision*, *recall*, dan *F1-score* yang sangat tinggi (0.99 atau 1.00), membuktikan kinerja andal model di seluruh rentang gestur abjad SIBI.
 
-### Cara Menguji
-Untuk memverifikasi fungsionalitas sistem, Anda dapat melakukan pengujian berikut:
-
-1.  **Uji Unit (Firmware):** Melalui monitor serial pada IDE untuk pembacaan sensor individual dan logika deteksi dasar.
-2.  **Uji Unit (Python):** Jalankan skrip Python untuk memverifikasi komponen pipeline pemrosesan data (normalisasi, ekstraksi fitur, inferensi model).
-    ```bash
-    cd Software/Python
-    pytest # Jika menggunakan Pytest atau framework serupa
-    ```
-3.  **Uji Integrasi:** Verifikasi fungsionalitas ujung-ke-ujung, dari masukan gerakan tangan pada sarung tangan hingga keluaran terjemahan akhir pada aplikasi sisi PC atau modul audio.
-4.  **Uji Penerimaan Pengguna (UAT):** Lakukan pengujian dengan pengguna target (misalnya, individu yang fasih berbahasa isyarat) untuk umpan balik kualitatif.
-5.  **Uji Kinerja:** Evaluasi latensi, konsumsi baterai, dan kecepatan pemrosesan di bawah berbagai beban.
-
-## Berkontribusi
-Kami sangat menyambut kontribusi dari komunitas untuk membantu kami meningkatkan dan memperluas kemampuan Sarung Tangan Pintar Tunawicara! Baik Anda seorang pengembang, desainer, ahli bahasa isyarat, atau hanya bersemangat tentang aksesibilitas, masukan Anda sangat berharga.
-
-Untuk berkontribusi, harap ikuti panduan berikut:
-
-1.  **Fork repositori:** Mulai dengan mem-fork repositori ini ke akun GitHub Anda sendiri.
-2.  **Buat cabang fitur Anda:**
-    ```bash
-    git checkout -b feature/nama-fitur-keren-anda
-    ```
-3.  **Buat perubahan Anda:** Implementasikan fitur baru, perbaikan bug, atau peningkatan Anda.
-4.  **Komit perubahan Anda:** Tulis pesan komit yang jelas dan ringkas.
-    ```bash
-    git commit -m 'feat: Menambahkan fitur baru yang luar biasa' # atau 'fix: Menyelesaikan bug kritis'
-    ```
-5.  **Push ke cabang:**
-    ```bash
-    git push origin feature/nama-fitur-keren-anda
-    ```
-6.  **Buka Pull Request:** Kirim Pull Request dari repositori yang Anda fork ke cabang `main` dari repositori ini. Harap berikan deskripsi rinci tentang perubahan Anda dan referensikan masalah terkait.
 
 Pastikan kode Anda mematuhi standar pengkodean kami, menyertakan dokumentasi yang lengkap, dan disertai dengan pengujian yang sesuai. Untuk perubahan besar, pertimbangkan untuk membuka masalah terlebih dahulu untuk membahas perubahan yang diusulkan.
 
@@ -210,14 +173,11 @@ Punya pertanyaan, saran, atau hanya ingin terhubung? Kami senang mendengar dari 
 ### Versi
 `1.0.0` - Rilis stabil awal dengan fungsionalitas inti untuk terjemahan bahasa isyarat real-time abjad SIBI.
 
-### Lisensi
-Proyek ini dilisensikan di bawah Lisensi MIT. Anda bebas menggunakan, memodifikasi, dan mendistribusikan perangkat lunak ini untuk tujuan komersial dan non-komersial, asalkan Anda menyertakan hak cipta asli dan pemberitahuan lisensi. Lihat file [LICENSE](LICENSE) untuk detail lengkap.
-
 ## Ucapan Terima Kasih
 Kami ingin mengucapkan terima kasih yang tulus kepada individu dan organisasi berikut atas kontribusi, dukungan, dan sumber daya berharga mereka yang memungkinkan "Studi dan Pengembangan Sarung Tangan Pintar Tunawicara" ini:
 
 -   **Institut Teknologi Sepuluh Nopember (ITS)**, khususnya **Departemen Fisika** dan **Fakultas Sains dan Analitika Data**, atas dukungan dan fasilitas yang diberikan.
--   **Bapak Diky Anggoro, S.Si., M.Si**, selaku Dosen Pembimbing, atas bimbingan dan arahan yang tak ternilai selama penelitian ini.
+-   **Bapak Diky Anggoro, S.Si., M.Si**, selaku Supervisor, atas bimbingan dan arahan yang tak ternilai selama penelitian ini.
 -   Seluruh pihak yang tidak dapat disebutkan satu per satu yang telah berkontribusi dalam bentuk saran, masukan, dan bantuan teknis.
 
 ## Peningkatan di Masa Depan
