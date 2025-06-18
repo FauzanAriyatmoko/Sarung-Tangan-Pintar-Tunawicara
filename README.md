@@ -150,12 +150,16 @@ Pengujian komprehensif telah dilakukan di seluruh siklus pengembangan untuk mema
 
 -   **Evaluasi Klasifikasi Jaringan Saraf Tiruan (ANN):**
     -   **Akurasi Model:** Kurva akurasi pelatihan dan validasi konvergen mendekati 1.0 (100%), menunjukkan kemampuan generalisasi yang sangat baik dan tidak ada *overfitting* yang signifikan.
+    
     ![grafik akurasi](https://github.com/user-attachments/assets/3938559a-9a45-48af-9aae-c590b801fe13)
     -   **Loss Model:** Kurva *loss* pelatihan dan validasi konvergen mendekati nol, mengindikasikan bahwa perbedaan antara prediksi model dan nilai sebenarnya sangat minimal.
+    
     ![grafik loss](https://github.com/user-attachments/assets/1ad2caac-4bfd-4756-ade3-08102051f1ed)
     -   **Confusion Matrix:** Matriks 26x26 menunjukkan sebagian besar nilai terkonsentrasi kuat di sepanjang diagonal utama, menandakan klasifikasi yang benar untuk mayoritas abjad SIBI.
+    
     ![train_ann_4](https://github.com/user-attachments/assets/feefb3e5-930d-4c9c-aa95-c101b9103ed0)
     -   **Metrik Performa (Precision, Recall, F1-Score):** Mayoritas kelas huruf menunjukkan nilai *precision*, *recall*, dan *F1-score* yang sangat tinggi (0.99 atau 1.00), membuktikan kinerja andal model di seluruh rentang gestur abjad SIBI.
+    
     ![train_ann_2](https://github.com/user-attachments/assets/15d623e7-7cc6-4f56-93c6-f6bc71ce6e4b)
 
 
