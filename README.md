@@ -38,6 +38,7 @@
 - [Peningkatan di Masa Depan](#peningkatan-di-masa-depan)
 
 ## Gambaran Umum
+![sarung tangan](https://github.com/user-attachments/assets/dd7d4ee9-e076-43c0-9f76-f39e513675f5)
 **Sarung Tangan Pintar Tunawicara** adalah sebuah alat bantu komunikasi bagi penyandang disabilitas tunawicara. Proyek ini berfokus pada pemanfaatan **sensor giroskop IMU MPU6050** dan **lima sensor *flex*** untuk mendeteksi gerakan tangan yang kompleks, merepresentasikan 26 huruf dalam **Abjad Sistem Isyarat Bahasa Indonesia (SIBI)**. Data sensor yang diperoleh kemudian diklasifikasikan menggunakan **Jaringan Saraf Tiruan (Artificial Neural Networks - ANN)**. Tujuan utamanya adalah untuk secara efektif memfasilitasi komunikasi antara penyandang tunawicara dan masyarakat umum yang tidak memahami bahasa isyarat, serta memberikan kontribusi nyata pada kemajuan riset dan pengembangan teknologi asistif di Indonesia.
 
 ## Mengapa Sarung Tangan Pintar Tunawicara?
