@@ -151,7 +151,8 @@ Pengujian komprehensif telah dilakukan di seluruh siklus pengembangan untuk mema
 -   **Arsitektur Model yang Digunakan:**
 
 Model ini terdiri dari tiga blok tersembunyi (hidden blocks) dan satu lapisan keluaran (output layer). Setiap blok tersembunyi memiliki pola yang sama, yaitu lapisan Dense (terhubung penuh), diikuti oleh Batch Normalization untuk menstabilkan dan mempercepat pelatihan, fungsi aktivasi ReLU (Rectified Linear Unit) untuk memperkenalkan non-linearitas, dan lapisan Dropout sebagai teknik regularisasi untuk mencegah overfitting. Jumlah neuron pada lapisan tersembunyi menurun dari 128 ke 64. Lapisan keluaran terakhir adalah lapisan Dense dengan 26 neuron, yang sangat mungkin mengindikasikan bahwa model ini digunakan untuk tugas klasifikasi 26 kelas, seperti pengenalan huruf alfabet. Secara total, model ini memiliki 16.666 parameter, dengan mayoritas (16.154) dapat dilatih dan 512 parameter tidak dapat dilatih yang berasal dari lapisan Batch Normalization.
-[Ringkasan Model ANN](https://github.com/user-attachments/assets/3d94e16a-e8e8-4ee8-8d33-6defa4d6156a)
+
+![Ringkasan Model ANN](https://github.com/user-attachments/assets/3d94e16a-e8e8-4ee8-8d33-6defa4d6156a)
 
 -   **Evaluasi Klasifikasi Jaringan Saraf Tiruan (ANN):**
     -   **Akurasi Model:** Kurva akurasi pelatihan dan validasi konvergen mendekati 1.0 (100%), menunjukkan kemampuan generalisasi yang sangat baik dan tidak ada *overfitting* yang signifikan.
