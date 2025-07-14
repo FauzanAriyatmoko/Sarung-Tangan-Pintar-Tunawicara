@@ -51,7 +51,6 @@ Proyek ini mengatasi tantangan komunikasi dan penelitian yang ada, dengan fokus 
 - 🌐 **Fungsionalitas Offline:** Desain sistem memungkinkan terjemahan dilakukan secara *offline*, memastikan keandalan di berbagai lingkungan tanpa ketergantungan internet.
 
 ## Memulai
-
 Untuk memulai dengan proyek Sarung Tangan Pintar Tunawicara, ikuti petunjuk di bawah ini.
 
 ### Prasyarat
@@ -148,6 +147,9 @@ Pengujian komprehensif telah dilakukan di seluruh siklus pengembangan untuk mema
     -   **Tegangan terhadap Sudut:** Hubungan linear terbalik yang konsisten antara tegangan keluaran dan sudut tekuk (rata-rata $R^2 > 0.98$).
       contoh: sensor 1 $R^2=0.9959$ (serial) dan $R^2=0.9909$ (multimeter).
       sensor 3 $R^2=0.9942$ (serial) dan $R^2=0.9962$ (multimeter)).
+
+-   **Arsitektur Model yang Digunakan:**
+    ![Ringkasan Model ANN](https://github.com/user-attachments/assets/3d94e16a-e8e8-4ee8-8d33-6defa4d6156a)
 
 -   **Evaluasi Klasifikasi Jaringan Saraf Tiruan (ANN):**
     -   **Akurasi Model:** Kurva akurasi pelatihan dan validasi konvergen mendekati 1.0 (100%), menunjukkan kemampuan generalisasi yang sangat baik dan tidak ada *overfitting* yang signifikan.
